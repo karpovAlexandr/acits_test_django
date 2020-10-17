@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Главная страница
+{% endblock %}
+
+{% block content %}
+    <h1>Список животных</h1>
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'pets:pet_create' %}">Добавить животное</a>
+    {%  endif %}
+    <ul>
+        {% for pet in pets %}
+            <li>
+                <a href="{% url 'pets:pet_detail' pet.pk %}">{{ pet.name }}</a> |
+                {{pet.age}} |
+                {{pet.special_sigh}}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
