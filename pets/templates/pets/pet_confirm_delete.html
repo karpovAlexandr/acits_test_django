@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1>Вы действительно хотите удалить {{ pet.name }}?</h1>
+        <p>
+            <input type="submit" value="Yes">
+
+            <a href="{% url 'pets:pet_detail' pet.pk %}">Cancel</a>
+        </p>
+    </form>
+{% endblock %}
+
