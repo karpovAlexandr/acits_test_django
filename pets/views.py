@@ -1,43 +1,37 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse
-from django.views.generic import (
-    CreateView, DeleteView,
-    DetailView, ListView,
-    UpdateView
-)
+from django.views import generic
 
 from pets.forms import UserLoginForm
 from pets.models import Pet
 
 
-class PetListView(ListView):
+class PetListView(generic.ListView):
     """Вью для всех животных"""
     model = Pet
     context_object_name = 'pets'
 
 
-class PetDetailView(DetailView):
+class PetDetailView(generic.DetailView):
     """Вью для животного"""
     model = Pet
     context_object_name = 'pet'
 
 
-class PetCreateView(LoginRequiredMixin, CreateView):
+class PetCreateView(LoginRequiredMixin, generic.CreateView):
     """Вью создания животного"""
     model = Pet
     fields = '__all__'
 
-    login_url = ''
 
-
-class PetUpdateView(LoginRequiredMixin, UpdateView):
+class PetUpdateView(LoginRequiredMixin, generic.UpdateView):
     """Вью для редактирования животного"""
     model = Pet
     fields = '__all__'
 
 
-class PetDeleteView(LoginRequiredMixin, DeleteView):
+class PetDeleteView(LoginRequiredMixin, generic.DeleteView):
     """Вью удаления животного"""
     model = Pet
     context_object_name = 'pet'
