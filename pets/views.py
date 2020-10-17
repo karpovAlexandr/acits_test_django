@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse
 from django.views import generic
@@ -19,22 +19,25 @@ class PetDetailView(generic.DetailView):
     context_object_name = 'pet'
 
 
-class PetCreateView(LoginRequiredMixin, generic.CreateView):
+class PetCreateView(LoginRequiredMixin, PermissionRequiredMixin, generic.CreateView):
     """Вью создания животного"""
     model = Pet
     fields = '__all__'
+    permission_required = 'pets.add_pet'
 
 
-class PetUpdateView(LoginRequiredMixin, generic.UpdateView):
+class PetUpdateView(LoginRequiredMixin, PermissionRequiredMixin, generic.UpdateView):
     """Вью для редактирования животного"""
     model = Pet
     fields = '__all__'
+    permission_required = 'pets.change_pet'
 
 
-class PetDeleteView(LoginRequiredMixin, generic.DeleteView):
+class PetDeleteView(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteView):
     """Вью удаления животного"""
     model = Pet
     context_object_name = 'pet'
+    permission_required = 'pets.delete_pet'
 
     def get_success_url(self):
         return reverse('pets:home')
