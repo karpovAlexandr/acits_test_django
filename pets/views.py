@@ -12,6 +12,9 @@ class PetListView(generic.ListView):
     model = Pet
     context_object_name = 'pets'
 
+    def get_queryset(self):
+        return Pet.objects.filter(shelter_id=self.request.user.profile.shelter)
+
 
 class PetDetailView(generic.DetailView):
     """Вью для животного"""
