@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse
 from django.views import generic
@@ -19,21 +19,21 @@ class PetDetailView(generic.DetailView):
     context_object_name = 'pet'
 
 
-class PetCreateView(LoginRequiredMixin, PermissionRequiredMixin, generic.CreateView):
+class PetCreateView(PermissionRequiredMixin, generic.CreateView):
     """Вью создания животного"""
     model = Pet
     fields = '__all__'
     permission_required = 'pets.add_pet'
 
 
-class PetUpdateView(LoginRequiredMixin, PermissionRequiredMixin, generic.UpdateView):
+class PetUpdateView(PermissionRequiredMixin, generic.UpdateView):
     """Вью для редактирования животного"""
     model = Pet
     fields = '__all__'
     permission_required = 'pets.change_pet'
 
 
-class PetDeleteView(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteView):
+class PetDeleteView(PermissionRequiredMixin, generic.DeleteView):
     """Вью удаления животного"""
     model = Pet
     context_object_name = 'pet'
