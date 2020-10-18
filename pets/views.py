@@ -13,7 +13,10 @@ class PetListView(generic.ListView):
     context_object_name = 'pets'
 
     def get_queryset(self):
-        return Pet.objects.filter(shelter_id=self.request.user.profile.shelter)
+        if self.request.user.is_authenticated:
+            return Pet.objects.filter(shelter_id=self.request.user.profile.shelter)
+        else:
+            return super().get_queryset()
 
 
 class PetDetailView(generic.DetailView):
