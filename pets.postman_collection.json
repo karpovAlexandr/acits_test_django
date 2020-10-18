@@ -1,0 +1,182 @@
+{
+	"id": "e26590b2-aadf-8155-2646-68c4d6409a00",
+	"name": "pets",
+	"description": "",
+	"order": [
+		"09ebcc67-6008-f9dc-d265-f91c95a7beb2",
+		"cb84f9b1-9250-dbc9-5241-a4c012970d94",
+		"319058d8-cbb3-c2a9-b28c-afc56c4a5eef",
+		"61edd2ec-0306-0545-8d2a-d452257f2317",
+		"4a1ca7c6-3b7e-e20a-9632-076f0e1d51cf"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1602862784344,
+	"owner": "4704141",
+	"public": false,
+	"requests": [
+		{
+			"id": "09ebcc67-6008-f9dc-d265-f91c95a7beb2",
+			"headers": "Authorization: Basic dGVzdF91c2VyOnRlc3RfMTIz\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic dGVzdF91c2VyOnRlc3RfMTIz",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/pets/pet/{pet_id}/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1603049591710,
+			"name": "pet_by_id",
+			"description": "",
+			"collectionId": "e26590b2-aadf-8155-2646-68c4d6409a00",
+			"responses": []
+		},
+		{
+			"id": "319058d8-cbb3-c2a9-b28c-afc56c4a5eef",
+			"headers": "Content-Type: application/json\nAuthorization: Basic dGVzdF9hZG1pbjp0ZXN0XzEyMw==\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic dGVzdF9hZG1pbjp0ZXN0XzEyMw==",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/pets/pet/add/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1603049596265,
+			"name": "create_pet",
+			"description": "",
+			"collectionId": "e26590b2-aadf-8155-2646-68c4d6409a00",
+			"responses": [],
+			"rawModeData": "{\n    \"name\": \"Малыш из api\",\n    \"age\": 8,\n    \"weight\": 2,\n    \"height\": 26,\n    \"special_sigh\": \"очень маленький той терьер\",\n    \"shelter\": 2\n}"
+		},
+		{
+			"id": "4a1ca7c6-3b7e-e20a-9632-076f0e1d51cf",
+			"headers": "Content-Type: application/json\nAuthorization: Basic dGVzdF91c2VyOnRlc3RfMTIz\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic dGVzdF91c2VyOnRlc3RfMTIz",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/pets/pet/{pet_id}/delete/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1603049600218,
+			"name": "delete_pet",
+			"description": "",
+			"collectionId": "e26590b2-aadf-8155-2646-68c4d6409a00",
+			"responses": [],
+			"rawModeData": "{\n    \"name\": \"from postman\",\n    \"age\": 12,\n    \"weight\": 2,\n    \"height\": 25,\n    \"special_sigh\": \"example\"\n}"
+		},
+		{
+			"id": "61edd2ec-0306-0545-8d2a-d452257f2317",
+			"headers": "Content-Type: application/json\nAuthorization: Basic dGVzdF9ndWVzdDp0ZXN0XzEyMw==\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic dGVzdF9ndWVzdDp0ZXN0XzEyMw==",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/pets/pet/{pet_id}/update/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1603049598423,
+			"name": "update_pet",
+			"description": "",
+			"collectionId": "e26590b2-aadf-8155-2646-68c4d6409a00",
+			"responses": [],
+			"rawModeData": "{\n    \"name\": \"Малыш из апи\",\n    \"age\": 8,\n    \"weight\": 2,\n    \"height\": 26,\n    \"special_sigh\": \"очень маленький той терьер\",\n    \"shelter\": 2\n}"
+		},
+		{
+			"id": "cb84f9b1-9250-dbc9-5241-a4c012970d94",
+			"headers": "Authorization: Basic dGVzdF9ndWVzdDp0ZXN0XzEyMw==\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic dGVzdF9ndWVzdDp0ZXN0XzEyMw==",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/pets/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1603049594321,
+			"name": "pets_list",
+			"description": "",
+			"collectionId": "e26590b2-aadf-8155-2646-68c4d6409a00",
+			"responses": []
+		}
+	]
+}
