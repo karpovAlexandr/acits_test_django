@@ -15,8 +15,8 @@
 
             <div class="card-body">
                 <p class="card-title">Кличка: {{ pet.name }}</p>
-                <p class="card-text">Возраст: {{ pet.age }}</p>
                 <p class="card-text">Особые приметы: {{ pet.special_sigh }}</p>
+                <p class="card-text">Приют: {{ pet.shelter }}</p>
                 <a href="{% url 'pets:pet_detail' pet.pk %}" class="btn btn-primary">Перейти на карточку</a>
             </div>
 

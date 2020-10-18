@@ -17,6 +17,7 @@
                 <p class="card-text">Рост: {{ pet.height }}</p>
                 <p class="card-text">Особые приметы: {{ pet.special_sigh }}</p>
                 <p class="card-text"> Дата прибытия: {{ pet.arrived|date:"Y-m-d" }}</p>
+                <p class="card-text">Приют: {{ pet.shelter }}</p>
 
                 {% if  'pets.change_pet' in user.get_user_permissions  %}
                     <a class="btn btn-primary" href="{% url 'pets:pet_update' pet.pk %}">Отредактировать</a>
