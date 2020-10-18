@@ -23,18 +23,18 @@ class CreatePet(generics.CreateAPIView):
     """Вью для добавления животного"""
     queryset = Pet.objects.all()
     serializer_class = serializers.PetCreateSerializer
-    permission_classes = (IsAuthenticated, permissions.CreatePermission,)
+    permission_classes = (IsAuthenticated, permissions.PetCreatePermission,)
 
 
 class UpdatePet(generics.UpdateAPIView):
     """Вью для редактирования животного"""
     queryset = Pet.objects.all()
     serializer_class = serializers.PetUpdateSerializer
-    permission_classes = (IsAuthenticated, permissions.UpdatePermission,)
+    permission_classes = (IsAuthenticated, permissions.PetUpdatePermission,)
 
 
 class DeletePet(generics.DestroyAPIView):
     """Вью для удаления животного"""
     queryset = Pet.objects.all()
     serializer_class = serializers.PetDeleteSerializer
-    permission_classes = (IsAuthenticated, permissions.DeletePermission,)
+    permission_classes = (IsAuthenticated, permissions.PetDeletePermission,)

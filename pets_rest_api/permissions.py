@@ -1,16 +1,21 @@
-from rest_framework import  permissions
+from rest_framework import permissions
 
 
-class CreatePermission(permissions.BasePermission):
+class PetBasePermission(permissions.BasePermission):
+    """Базовый класс для доступов к api"""
+    permission = 'pets.read_pet'
+
     def has_permission(self, request, view):
-        return bool('pets.add_pet' in request.user.get_user_permissions())
+        return bool(self.permission in request.user.get_user_permissions())
 
 
-class UpdatePermission(permissions.BasePermission):
-    def has_permission(self, request, view):
-        return bool('pets.change_pet' in request.user.get_user_permissions())
+class PetCreatePermission(PetBasePermission):
+    permission = 'pets.add_pet'
 
 
-class DeletePermission(permissions.BasePermission):
-    def has_permission(self, request, view):
-        return bool('pets.delete_pet' in request.user.get_user_permissions())
+class PetUpdatePermission(PetBasePermission):
+    permission = 'pets.change_pet'
+
+
+class PetDeletePermission(PetBasePermission):
+    permission = 'pets.delete_pet'
