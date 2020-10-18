@@ -6,16 +6,24 @@
 
 {% block content %}
     <h1>Список животных</h1>
-    {% if request.user.is_authenticated %}
-        <a href="{% url 'pets:pet_create' %}">Добавить животное</a>
-    {%  endif %}
-    <ul>
-        {% for pet in pets %}
-            <li>
-                <a href="{% url 'pets:pet_detail' pet.pk %}">{{ pet.name }}</a> |
-                {{pet.age}} |
-                {{pet.special_sigh}}
-            </li>
-        {% endfor %}
-    </ul>
+    {% for pet in pets %}
+        <div class="card mb-3">
+            <div class="card-header">
+                Имя:
+                <a href="{% url 'pets:pet_detail' pet.pk %}">{{ pet.name }}</a>
+            </div>
+
+            <div class="card-body">
+                <p class="card-title">Кличка: {{ pet.name }}</p>
+                <p class="card-text">Возраст: {{ pet.age }}</p>
+                <p class="card-text">Особые приметы: {{ pet.special_sigh }}</p>
+                <a href="{% url 'pets:pet_detail' pet.pk %}" class="btn btn-primary">Перейти на карточку</a>
+            </div>
+
+            <div class="card-footer text-muted">
+               Дата прибытия: {{ pet.arrived|date:"Y-m-d" }}
+            </div>
+        </div>
+    {% endfor %}
+
 {% endblock %}

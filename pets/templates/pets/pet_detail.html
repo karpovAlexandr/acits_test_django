@@ -5,14 +5,27 @@
 {% endblock %}
 
 {% block content %}
-    <p>Кличка: {{ pet.name }}</p>
-    <p>Возраст: {{ pet.age }}</p>
-    <p>Дата прибытия: {{ pet.arrived }}</p>
-    <p>Вес: {{ pet.weight }}</p>
-    <p>Рост: {{ pet.height }}</p>
-    <p>Особые приметы: {{ pet.special_sigh }}</p>
-    {% if request.user.is_authenticated %}
-        <a href="{% url 'pets:pet_update' pet.pk %}">Отредактировать</a>
-        <a href="{% url 'pets:pet_delete' pet.pk %}">Удалить</a>
-    {% endif %}
+            <div class="card mb-3">
+            <div class="card-header">
+                <a href="{% url 'pets:pet_detail' pet.pk %}">{{ pet.name }}</a>
+            </div>
+
+            <article class="card-body">
+                <p class="card-title">Кличка: {{ pet.name }}</p>
+                <p class="card-text">Возраст: {{ pet.age }}</p>
+                <p class="card-text">Вес: {{ pet.weight }}</p>
+                <p class="card-text">Рост: {{ pet.height }}</p>
+                <p class="card-text">Особые приметы: {{ pet.special_sigh }}</p>
+                <p class="card-text"> Дата прибытия: {{ pet.arrived|date:"Y-m-d" }}</p>
+
+                {% if request.user.is_authenticated %}
+                    <a class="btn btn-primary" href="{% url 'pets:pet_update' pet.pk %}">Отредактировать</a>
+                    <a class="btn btn-primary" href="{% url 'pets:pet_delete' pet.pk %}">Удалить</a>
+                {% endif %}
+            </article>
+
+            <div class="card-footer text-muted">
+            </div>
+        </div>
+
 {% endblock %}

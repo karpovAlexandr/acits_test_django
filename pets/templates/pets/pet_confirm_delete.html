@@ -4,11 +4,10 @@
 {% block content %}
     <form action="" method="post">
         {% csrf_token %}
-        <h1>Вы действительно хотите удалить {{ pet.name }}?</h1>
+        <h1>Вы действительно хотите удалить питомца {{ pet.name }} - id {{ pet.pk }}?</h1>
         <p>
-            <input type="submit" value="Yes">
-
-            <a href="{% url 'pets:pet_detail' pet.pk %}">Cancel</a>
+            <input class="btn btn-primary" type="submit" value="Да">
+            <a class="btn btn-primary" href="{% url 'pets:pet_detail' pet.pk %}" >Нет</a>
         </p>
     </form>
 {% endblock %}
