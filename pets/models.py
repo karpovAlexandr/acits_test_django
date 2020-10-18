@@ -1,10 +1,13 @@
+from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.urls import reverse
-from django.core.validators import MinValueValidator
-from django.contrib.auth.models import User
+
+from softdelete.models import SoftDeleteObject
 
 
 class Shelter(models.Model):
+    """Модель приюта"""
     title = models.CharField('Название приюта', max_length=255)
 
     def __str__(self):
@@ -16,6 +19,7 @@ class Shelter(models.Model):
 
 
 class Profile(models.Model):
+    """Модель пользователя с привязкой к приюту"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     shelter = models.ForeignKey(Shelter, related_name='user_shelter', verbose_name='Приют', on_delete=models.CASCADE)
 
@@ -27,7 +31,7 @@ class Profile(models.Model):
         verbose_name_plural = 'Пользователи'
 
 
-class Pet(models.Model):
+class Pet(SoftDeleteObject, models.Model):
     """Модель животного"""
     name = models.CharField('Кличка', max_length=50)
     age = models.SmallIntegerField('Возраст', validators=[MinValueValidator(0)])
