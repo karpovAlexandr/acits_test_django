@@ -13,12 +13,13 @@
                 </li>
             {% endif %}
 
-            <li class="nav-item">
-                <span class="navbar-text">
-                    Ваш приют: {{ user.profile.shelter }}
-                </span>
-            </li>
-
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <span class="navbar-text">
+                        Ваш приют: {{ user.profile.shelter }}
+                    </span>
+                </li>
+            {% endif %}
         </ul>
 
         <span class="navbar-text">
