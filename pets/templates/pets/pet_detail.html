@@ -18,8 +18,11 @@
                 <p class="card-text">Особые приметы: {{ pet.special_sigh }}</p>
                 <p class="card-text"> Дата прибытия: {{ pet.arrived|date:"Y-m-d" }}</p>
 
-                {% if request.user.is_authenticated %}
+                {% if  'pets.change_pet' in user.get_user_permissions  %}
                     <a class="btn btn-primary" href="{% url 'pets:pet_update' pet.pk %}">Отредактировать</a>
+                {% endif %}
+
+                {% if  'pets.delete_pet' in user.get_user_permissions  %}
                     <a class="btn btn-primary" href="{% url 'pets:pet_delete' pet.pk %}">Удалить</a>
                 {% endif %}
             </article>
