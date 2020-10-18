@@ -1,8 +1,8 @@
-from rest_framework import generics, permissions
+from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
+from pets_rest_api import permissions, serializers
+
 from pets.models import Pet
-from pets_rest_api import serializers
-from pets_rest_api import permissions
 
 
 class ListPets(generics.ListAPIView):
