@@ -22,7 +22,7 @@
        - мягкое удаление животного из базы
        
 ## Настройки:
-1. [создайте бд Postgresql] (https://djbook.ru/examples/77/)
+1. [создайте и подключите бд Postgresql]
 1. Создайте и активируйте виртуальное окружение: 
 `virtualenv venv 
 source venv/bin/activate`
@@ -48,3 +48,6 @@ source venv/bin/activate`
 - CRUD api для приложения pets
 - методы требуют авторизацию (права доступа пользовтеля так же проверяются)
 - pets.postman_collection.json - коллекция методов pets_rest_api для POSTMAN
+
+
+[создайте и подключите бд Postgresql]: (https://djbook.ru/examples/77/)
