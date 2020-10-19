@@ -1,4 +1,7 @@
+import datetime
+
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.urls import reverse
@@ -34,8 +37,8 @@ class Profile(models.Model):
 class Pet(SoftDeleteObject, models.Model):
     """Модель животного"""
     name = models.CharField('Кличка', max_length=50)
-    age = models.SmallIntegerField('Возраст', validators=[MinValueValidator(0)])
-    arrived = models.DateField('Дата прибытия в приют', auto_now_add=True)
+    birth_date = models.DateField('Дата рождения', default=datetime.date.today())
+    arrived = models.DateField('Дата прибытия в приют', default=datetime.date.today())
     weight = models.FloatField('Вес', validators=[MinValueValidator(0)])
     height = models.SmallIntegerField('Рост', validators=[MinValueValidator(0)])
     special_sigh = models.CharField('Особые приметы', max_length=255, blank=True)
@@ -46,6 +49,10 @@ class Pet(SoftDeleteObject, models.Model):
 
     def get_absolute_url(self):
         return reverse('pets:pet_detail', kwargs={'pk': self.pk})
+
+    def save(self, *args, **kwargs):
+        if self.arrived < datetime.date.today() or self.birth_date < datetime.date.today():
+            raise ValidationError("The dates cannot be in the past!")
 
     class Meta:
         verbose_name = 'Животное'
