@@ -9,10 +9,10 @@ admin.site.register(Profile)
 class PetAdmin(admin.ModelAdmin):
     """Модель животного для админки"""
     list_display = ('id', 'name', 'arrived', 'shelter', 'special_sigh',)
-    fields = ('name', 'age', 'arrived', 'weight', 'height', 'special_sigh', 'shelter',)
+    fields = ('name', 'birth_date', 'arrived', 'weight', 'height', 'special_sigh', 'shelter', 'deleted_at')
     list_display_links = ('id', 'name',)
     search_fields = ('id', 'name', 'special_sigh',)
-    readonly_fields = ('arrived',)
+    readonly_fields = ('arrived', 'deleted_at')
 
 
 @admin.register(Shelter)
