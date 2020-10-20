@@ -33,38 +33,38 @@
        
 ## Настройки:
 1. [создайте и подключите бд Postgresql]
-1. Создайте и активируйте виртуальное окружение: 
-`virtualenv venv 
-source venv/bin/activate`
+1. Создайте и активируйте виртуальное окружение: <br>
+    `virtualenv venv` 
+    `source venv/bin/activate`
 
-1. Установите пакеты из requirements.txt: 
-`pip install -p requirements.txt`
+1. Установите пакеты из requirements.txt: <br>
+    `pip install -p requirements.txt`
 
-1. Сделайте миграцию приложения:
- `./acits_test_django/python manage.py makemigration`
-`./acits_test_django/python manage.py migrate`
+1. Сделайте миграцию приложения:<br>
+    `./acits_test_django/python manage.py makemigration`
+    `./acits_test_django/python manage.py migrate`
 
-1. Создайте супер-пользователя
-`./acits_test_django/python manage.py createsuperuser`
+1. Создайте супер-пользователя: <br>
+    `./acits_test_django/python manage.py createsuperuser`
 
 ## Запуск приложения
 `./acits_test_django/python manage.py runserver`
 
 ## Настройки запущенного приложения
 
-1. создаем группы пользователей:
-`http://127.0.0.1:8000/admin/auth/group/`
-Admins (даем права доступа в pets: can add, can change, can delete, can view )
-Users (даем права доступа в pets: can add, can change, can view )
-Guests (даем права доступа в pets: can view )
+1. создаем группы пользователей: <br>
+    `http://127.0.0.1:8000/admin/auth/group/` <br>
+    Admins (даем права доступа в pets: can add, can change, can delete, can view ) <br>
+    Users (даем права доступа в pets: can add, can change, can view ) <br>
+    Guests (даем права доступа в pets: can view ) <br>
 
-1. создаем нужное количество пользователей и добавляем их в группы:
-`http://127.0.0.1:8000/admin/auth/user/`
+1. создаем нужное количество пользователей и добавляем их в группы:<br>
+    `http://127.0.0.1:8000/admin/auth/user/`
 
-1. создаем приюты:
-`http://127.0.0.1:8000/admin/pets/shelter/`
+1. создаем приюты: <br>
+    `http://127.0.0.1:8000/admin/pets/shelter/`
 
-1. создаем профайлы пользователей:
-`http://127.0.0.1:8000/admin/pets/profile/`
+1. создаем профайлы пользователей: <br>
+    `http://127.0.0.1:8000/admin/pets/profile/`
 
 [создайте и подключите бд Postgresql]: (https://djbook.ru/examples/77/)
