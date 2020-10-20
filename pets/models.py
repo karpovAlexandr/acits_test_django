@@ -51,7 +51,9 @@ class Pet(SoftDeleteObject, models.Model):
         return reverse('pets:pet_detail', kwargs={'pk': self.pk})
 
     def save(self, *args, **kwargs):
-        if self.arrived < datetime.date.today() or self.birth_date < datetime.date.today():
+        if self.deleted:
+            super().save(*args, **kwargs)
+        elif self.arrived < datetime.date.today() or self.birth_date < datetime.date.today():
             raise ValidationError("The dates cannot be in the past!")
 
     class Meta:
